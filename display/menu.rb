@@ -1,6 +1,6 @@
 
 
-def init_menu(products = [])
+def init_menu()
     
     loop do
         yellow_message("======== Escolha uma das opções abaixo: ========",false,false)
@@ -13,11 +13,11 @@ def init_menu(products = [])
 
         case option
         when 1
-            create_product(products)
+            create_product
         when 2
-            show_products(products)
+            show_products
         when 3
-            remove_products(products)
+            remove_products
         when 4
             clear_screen
             exit

@@ -1,4 +1,4 @@
-def create_product(products)
+def create_product
     message("Iniciando cadastro de produto ...", true, true, 1)
    
     blue_message("Digite o nome do produto",false,false)
@@ -17,13 +17,16 @@ def create_product(products)
     stock = gets.to_i
     clear_screen
 
-    products << {
-        id: Time.now.to_i,
-        name: name,
-        description: description,
-        price: price,
-        stock: stock
-    }
+    
+    p = ProductEntity.new ({
+        "id" => Time.now.to_i,
+        "name" => name,
+        "description" => description,
+        "price" => price,
+        "stock" => stock
+    })
+
+    ProductService.add(p)
 
     message("O produto #{yellow(name)} foi cadastrado com sucesso!",true,true,3)
 end
